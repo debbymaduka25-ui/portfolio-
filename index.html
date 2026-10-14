@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Designer & Video Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEBF3; --ink:#231634; --muted:#5b5370; --card:#ffffff;
+  --accent:#F2A93B; --accent-ink:#231634; --teal:#1F8A8A; --line:rgba(35,22,52,.16);
+  --display:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif;
+  --body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#17101f; --ink:#efeaf7; --muted:#b3a9c4; --card:#221931; --teal:#47c2c2; --line:rgba(255,255,255,.16);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17101f; --ink:#efeaf7; --muted:#b3a9c4; --card:#221931; --teal:#47c2c2; --line:rgba(255,255,255,.16);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+p{margin:0 0 1rem;max-width:62ch}
+
+/* Navigation */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.03em}
+.logo span{display:inline-block;width:.6em;height:.6em;background:var(--accent);border-radius:50%;margin-left:.15em}
+.links{display:flex;gap:2rem;list-style:none;margin:0;padding:0;align-items:center}
+.links a{text-decoration:none;font-weight:500;padding:.4rem 0;border-bottom:2px solid transparent}
+.links a:hover{border-color:var(--accent)}
+.links .cta{background:var(--ink);color:var(--bg);padding:.55rem 1.1rem;border-radius:999px;border:0}
+.links .cta:hover{background:var(--accent);color:var(--accent-ink)}
+#menu{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.burger i{display:block;width:24px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+#menu:checked ~ .burger i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+#menu:checked ~ .burger i:nth-child(2){opacity:0}
+#menu:checked ~ .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+#menu:focus-visible ~ .burger{outline:3px solid var(--accent);border-radius:8px}
+
+/* Hero */
+.hero{padding:clamp(3rem,9vw,7rem) 0 clamp(3rem,8vw,6rem)}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.9rem,8.5vw,6.4rem);font-weight:800}
+.hero .lead{font-size:1.2rem;color:var(--muted);margin:1.6rem 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.9rem}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.9rem 1.6rem;border-radius:999px;border:2px solid var(--ink);transition:background .2s,color .2s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.collage{position:relative;aspect-ratio:1/1.05;width:100%;max-width:440px;justify-self:end}
+.collage div{position:absolute;border-radius:28px}
+.c1{inset:0 18% 22% 0;background:var(--ink)}
+.c2{inset:20% 0 0 28%;background:var(--accent);border-radius:50% 50% 28px 28px!important}
+.c3{width:34%;height:34%;left:4%;bottom:2%;background:var(--teal);border-radius:50%!important}
+.c4{width:22%;height:22%;right:6%;top:2%;border:6px solid var(--ink);border-radius:50%!important}
+
+/* Sections */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(2rem,5vw,3.4rem)}
+.sec-head p{color:var(--muted);margin-top:1rem}
+
+/* About */
+.about{background:var(--card);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about h2{font-size:clamp(2rem,5vw,3.4rem)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0 0;padding:0;list-style:none}
+.facts li{border-top:3px solid var(--accent);padding-top:.7rem}
+.facts b{display:block;font-family:var(--display);font-size:2rem;line-height:1}
+.facts span{font-size:.92rem;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1.5rem 0 0}
+.tools li{border:1.5px solid var(--line);padding:.3rem .9rem;border-radius:999px;font-size:.95rem}
+
+/* Services */
+.service{display:grid;grid-template-columns:90px 1fr 1.1fr;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);align-items:start}
+.service:last-child{border-bottom:1px solid var(--line)}
+.service .ico{width:60px;height:60px;border-radius:18px;background:var(--accent);display:grid;place-items:center}
+.service:nth-child(2) .ico{background:var(--teal)}
+.service:nth-child(3) .ico{background:var(--ink)}
+.service .ico svg{width:30px;height:30px;stroke:var(--accent-ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.service:nth-child(2) .ico svg{stroke:#fff}
+.service:nth-child(3) .ico svg{stroke:var(--bg)}
+.service h3{font-size:1.7rem}
+.service p{color:var(--muted);margin:0}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem)}
+.contact p{opacity:.85}
+.contact .mail{display:inline-block;margin-top:.5rem;font-family:var(--display);font-size:1.4rem;font-weight:700;color:var(--accent);word-break:break-word}
+form{display:grid;gap:1.1rem}
+label{font-weight:600;font-size:.95rem;display:block;margin-bottom:.35rem}
+input,textarea{width:100%;font:inherit;color:#231634;background:#fff;border:2px solid transparent;border-radius:14px;padding:.85rem 1rem}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{outline:3px solid var(--accent);outline-offset:2px}
+form button{font:inherit;font-weight:700;cursor:pointer;background:var(--accent);color:#231634;border:0;border-radius:999px;padding:1rem 1.8rem;justify-self:start}
+form button:hover{background:#fff}
+
+/* Footer */
+footer{padding:2rem 0;font-size:.95rem;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.foot ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
+
+/* Responsive */
+@media (max-width:860px){
+  .burger{display:flex}
+  .links{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.25rem;display:none}
+  #menu:checked ~ .links{display:flex}
+  .links a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line)}
+  .links .cta{text-align:center;margin-top:.9rem;border-radius:999px}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .collage{justify-self:start;max-width:320px}
+  .service{grid-template-columns:70px 1fr}
+  .service p{grid-column:2}
+}
+@media (max-width:480px){
+  .facts{grid-template-columns:1fr 1fr}
+  .btn{flex:1 1 100%;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top">Your Name<span></span></a>
+    <input type="checkbox" id="menu" aria-label="Toggle menu">
+    <label class="burger" for="menu" aria-hidden="true"><i></i><i></i><i></i></label>
+    <ul class="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact" class="cta">Hire me</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>I turn rough ideas into finished work.</h1>
+        <p class="lead">Freelance graphic designer and video editor helping small brands look sharp and sound clear, from logo to launch video.</p>
+        <div class="btns">
+          <a class="btn primary" href="#contact">Start a project</a>
+          <a class="btn ghost" href="#services">See what I do</a>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>Design with a reason behind every choice.</h2>
+        <ul class="facts">
+          <li><b>5+</b><span>years of experience</span></li>
+          <li><b>80+</b><span>projects delivered</span></li>
+          <li><b>40</b><span>happy clients</span></li>
+        </ul>
+      </div>
+      <div>
+        <p>Hi, I'm Your Name. I work with founders, creators and local businesses who need visuals that explain what they do in a few seconds.</p>
+        <p>I start by learning how your customers think, then build the identity, graphics and video around that. You get clear timelines, fast replies and files that are ready to use.</p>
+        <ul class="tools" aria-label="Tools I use">
+          <li>Figma</li><li>Photoshop</li><li>Illustrator</li><li>Premiere Pro</li><li>After Effects</li><li>CapCut</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Services</h2>
+        <p>Pick one service or combine them into a full brand package.</p>
+      </div>
+
+      <article class="service">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="M2 2l7.6 7.6"/></svg></div>
+        <h3>Brand identity</h3>
+        <p>Logo, color palette, typography and a short style guide so your brand looks the same everywhere.</p>
+      </article>
+
+      <article class="service">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div>
+        <h3>Video editing</h3>
+        <p>Social reels, promos and YouTube edits with clean cuts, captions, sound and motion graphics.</p>
+      </article>
+
+      <article class="service">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <h3>Graphic design</h3>
+        <p>Social media posts, flyers, packaging, pitch decks and product mockups made to match your brand.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Let's work together.</h2>
+        <p>Tell me what you're building, your deadline and your budget range. I reply within one business day.</p>
+        <a class="mail" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+      <form action="mailto:hello@example.com" method="post" enctype="text/plain">
+        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="msg">Project details</label><textarea id="msg" name="message" required></textarea></div>
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Your Name. All rights reserved.</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
