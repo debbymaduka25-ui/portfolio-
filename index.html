@@ -1,248 +1,313 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your Name – Designer & Video Editor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roxy Real Estate | Rentals in Port Harcourt and Lagos</title>
+<meta name="description" content="Affordable rentals and lettings in Port Harcourt and Lagos from Roxy Real Estate.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Young+Serif&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#ECEBF3; --ink:#231634; --muted:#5b5370; --card:#ffffff;
-  --accent:#F2A93B; --accent-ink:#231634; --teal:#1F8A8A; --line:rgba(35,22,52,.16);
-  --display:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif;
-  --body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#17101f; --ink:#efeaf7; --muted:#b3a9c4; --card:#221931; --teal:#47c2c2; --line:rgba(255,255,255,.16);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#17101f; --ink:#efeaf7; --muted:#b3a9c4; --card:#221931; --teal:#47c2c2; --line:rgba(255,255,255,.16);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
-img,svg{max-width:100%}
+:root{--red:#A81F2B;--red-dark:#7E1520;--wine:#2A1215;--cream:#FBF3E6;--sand:#F0E2CC;--blush:#F4D9D2;--line:#E3D2B8;--serif:"Young Serif",Georgia,serif;--sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.6;color:var(--wine);background:var(--cream)}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
-h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
-p{margin:0 0 1rem;max-width:62ch}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
+h1{font-size:clamp(2.2rem,6vw,3.9rem)}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:.75rem}
+h3{font-size:1.25rem}
+p{max-width:62ch}
+.site-header{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.site-header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-top:.9rem;padding-bottom:.9rem}
+.logo{font-family:var(--serif);font-size:1.5rem;text-decoration:none;color:var(--red)}
+.logo span{color:var(--wine)}
+nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;list-style:none}
+nav a{text-decoration:none;font-weight:600;padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--red)}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--red-dark)}
+.btn.light{background:var(--cream);color:var(--red)}
+.btn.light:hover{background:var(--sand)}
+.hero{padding:3.5rem 0 3rem}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.15fr .85fr;align-items:center}
+.hero p{margin:1.1rem 0 1.8rem;font-size:1.2rem}
+.hero-art{aspect-ratio:4/5;border-radius:220px 220px 16px 16px;background:linear-gradient(180deg,var(--blush) 0 55%,var(--red) 55%);position:relative;overflow:hidden}
+.hero-art::before{content:"";position:absolute;left:20%;right:20%;bottom:0;height:46%;background:var(--cream);border-radius:8px 8px 0 0}
+.hero-art::after{content:"";position:absolute;left:41%;width:18%;bottom:0;height:24%;background:var(--wine);border-radius:60px 60px 0 0}
+.search{display:flex;flex-wrap:wrap;gap:.6rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:.7rem;margin-top:.5rem}
+.search label{flex:1 1 140px;font-size:.85rem;font-weight:600}
+.search select{display:block;width:100%;margin-top:.15rem;padding:.6rem;border:1px solid var(--line);border-radius:10px;background:var(--cream);font:inherit;color:inherit}
+.search .btn{align-self:flex-end;flex:1 1 140px}
+section.block{padding:3.5rem 0}
+.cities{background:var(--sand)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+.city{padding:2rem;border-radius:24px 4px 24px 4px;background:var(--red);color:#fff}
+.city:nth-child(2){background:var(--wine);border-radius:4px 24px 4px 24px}
+.city p{margin:.6rem 0 1rem}
+.city a{font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem;margin-top:1.75rem}
+.listing{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.photo{height:170px;display:flex;align-items:flex-end;padding:.8rem;background:var(--blush);position:relative}
+.photo.b{background:var(--sand)}.photo.c{background:#E9B9B0}
+.photo::after{content:"";position:absolute;right:1.2rem;bottom:0;width:90px;height:70px;background:var(--red);border-radius:6px 6px 0 0;opacity:.85}
+.tag{position:relative;z-index:1;background:var(--cream);font-size:.85rem;font-weight:600;padding:.2rem .7rem;border-radius:999px}
+.listing .body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.price{font-family:var(--serif);font-size:1.45rem;color:var(--red)}
+.price small{font-family:var(--sans);font-size:.9rem;color:var(--wine)}
+.meta{font-size:.95rem}
+.listing .btn{margin-top:auto;text-align:center;padding:.6rem 1rem}
+.note{font-size:.9rem;margin-top:1.5rem;opacity:.8}
+.page-head{background:var(--sand);padding:3rem 0 2.5rem}
+.page-head p{margin-top:.75rem;font-size:1.15rem}
+.filters{margin-top:1.5rem}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.why article{padding:2rem;border-radius:20px;background:#fff;border:1px solid var(--line)}
+.why article:first-child{background:var(--red);color:#fff;border:0}
+.why p{margin-top:.7rem}
+.list{margin:1rem 0 0 1.2rem}
+.list li{margin-bottom:.4rem}
+.cta-band{background:var(--wine);color:var(--cream);text-align:center;padding:3.5rem 0}
+.cta-band p{margin:.8rem auto 1.5rem}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.5rem}
+.details dt{font-weight:700;margin-top:1.2rem}
+.details dd{margin:0}
+form.contact{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem;display:grid;gap:1rem}
+form.contact label{font-weight:600;font-size:.95rem}
+form.contact input,form.contact select,form.contact textarea{display:block;width:100%;margin-top:.25rem;padding:.7rem;border:1px solid var(--line);border-radius:10px;background:var(--cream);font:inherit;color:inherit}
+form.contact textarea{min-height:130px;resize:vertical}
+.site-footer{background:var(--wine);color:var(--cream);padding:2.5rem 0 1.5rem;margin-top:0}
+.site-footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+.site-footer h3{font-size:1.05rem;margin-bottom:.5rem}
+.site-footer ul{list-style:none}
+.site-footer a{text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.copy{border-top:1px solid rgba(251,243,230,.25);margin-top:1.8rem;padding-top:1rem;font-size:.9rem}
+@media(max-width:800px){.hero .wrap,.split,.why,.contact-grid,.site-footer .cols{grid-template-columns:1fr}.hero-art{aspect-ratio:16/10;border-radius:120px 120px 12px 12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-/* Navigation */
-.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:var(--display);font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.03em}
-.logo span{display:inline-block;width:.6em;height:.6em;background:var(--accent);border-radius:50%;margin-left:.15em}
-.links{display:flex;gap:2rem;list-style:none;margin:0;padding:0;align-items:center}
-.links a{text-decoration:none;font-weight:500;padding:.4rem 0;border-bottom:2px solid transparent}
-.links a:hover{border-color:var(--accent)}
-.links .cta{background:var(--ink);color:var(--bg);padding:.55rem 1.1rem;border-radius:999px;border:0}
-.links .cta:hover{background:var(--accent);color:var(--accent-ink)}
-#menu{position:absolute;opacity:0;pointer-events:none}
-.burger{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:6px}
-.burger i{display:block;width:24px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
-#menu:checked ~ .burger i:nth-child(1){transform:translateY(8px) rotate(45deg)}
-#menu:checked ~ .burger i:nth-child(2){opacity:0}
-#menu:checked ~ .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-#menu:focus-visible ~ .burger{outline:3px solid var(--accent);border-radius:8px}
+/* ===== Gold accent, patterns, gradients, dividers, hovers ===== */
+:root{--gold:#C9A227;--gold-light:#EBD08A;--gold-pale:#F7EBC8}
 
-/* Hero */
-.hero{padding:clamp(3rem,9vw,7rem) 0 clamp(3rem,8vw,6rem)}
-.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center}
-.hero h1{font-size:clamp(2.9rem,8.5vw,6.4rem);font-weight:800}
-.hero .lead{font-size:1.2rem;color:var(--muted);margin:1.6rem 0 2rem}
-.btns{display:flex;flex-wrap:wrap;gap:.9rem}
-.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.9rem 1.6rem;border-radius:999px;border:2px solid var(--ink);transition:background .2s,color .2s}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.btn.ghost:hover{background:var(--ink);color:var(--bg)}
-.collage{position:relative;aspect-ratio:1/1.05;width:100%;max-width:440px;justify-self:end}
-.collage div{position:absolute;border-radius:28px}
-.c1{inset:0 18% 22% 0;background:var(--ink)}
-.c2{inset:20% 0 0 28%;background:var(--accent);border-radius:50% 50% 28px 28px!important}
-.c3{width:34%;height:34%;left:4%;bottom:2%;background:var(--teal);border-radius:50%!important}
-.c4{width:22%;height:22%;right:6%;top:2%;border:6px solid var(--ink);border-radius:50%!important}
+/* Gradients and patterns */
+body{background:linear-gradient(180deg,var(--cream) 0,#FFF9EF 100%)}
+.hero{background:
+  radial-gradient(circle at 12% 18%,rgba(201,162,39,.22) 0 2px,transparent 3px) 0 0/28px 28px,
+  radial-gradient(ellipse at 85% 10%,var(--blush) 0,transparent 55%),
+  var(--cream)}
+.page-head{background:
+  radial-gradient(circle at 50% 50%,rgba(201,162,39,.28) 0 2px,transparent 3px) 0 0/26px 26px,
+  linear-gradient(120deg,var(--sand) 0,var(--blush) 100%);
+  border-bottom:4px solid var(--gold);position:relative}
+.cities{background:
+  repeating-linear-gradient(45deg,rgba(168,31,43,.05) 0 2px,transparent 2px 18px),
+  linear-gradient(180deg,var(--sand),var(--gold-pale))}
+.cta-band{background:
+  radial-gradient(circle at 90% 0,rgba(201,162,39,.35) 0,transparent 45%),
+  linear-gradient(135deg,var(--wine) 0,#4A1219 55%,var(--red-dark) 100%);
+  position:relative}
+.site-footer{background:linear-gradient(180deg,#3A1217,var(--wine));border-top:4px solid var(--gold)}
+.hero-art{background:linear-gradient(180deg,var(--gold-pale) 0 20%,var(--blush) 20% 55%,var(--red) 55%);box-shadow:0 0 0 6px var(--cream),0 0 0 9px var(--gold)}
+.city{background:linear-gradient(135deg,var(--red),var(--red-dark))}
+.city:nth-child(2){background:linear-gradient(135deg,#4A1219,var(--wine))}
 
-/* Sections */
-section{padding:clamp(3.5rem,8vw,6rem) 0}
-.sec-head{margin-bottom:2.5rem}
-.sec-head h2{font-size:clamp(2rem,5vw,3.4rem)}
-.sec-head p{color:var(--muted);margin-top:1rem}
+/* Decorative shapes and dividers */
+.hero::after{content:"";position:absolute;left:-60px;bottom:-60px;width:180px;height:180px;border-radius:50%;border:14px solid var(--gold-light);opacity:.6;pointer-events:none}
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.cities::before,.cta-band::before{content:"";display:block;position:absolute;top:0;left:0;right:0;height:14px;
+  background:radial-gradient(circle at 10px 0,var(--cream) 9px,transparent 10px) 0 0/20px 14px repeat-x}
+.cities,.cta-band{position:relative}
+.cta-band::before{background:radial-gradient(circle at 10px 0,var(--cream) 9px,transparent 10px) 0 0/20px 14px repeat-x}
+h2::after{content:"";display:block;width:64px;height:4px;margin-top:.6rem;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--red))}
+.cta-band h2::after,.city h3::after{margin-left:auto;margin-right:auto}
+.city h3::after{margin-left:0;content:"";display:block;width:40px;height:3px;margin-top:.5rem;background:var(--gold-light)}
+.why article:nth-child(2){border-top:6px solid var(--gold)}
+.why article:first-child{background:linear-gradient(135deg,var(--red),var(--red-dark))}
+.list li::marker{color:var(--gold)}
 
-/* About */
-.about{background:var(--card);border-block:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.about h2{font-size:clamp(2rem,5vw,3.4rem)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0 0;padding:0;list-style:none}
-.facts li{border-top:3px solid var(--accent);padding-top:.7rem}
-.facts b{display:block;font-family:var(--display);font-size:2rem;line-height:1}
-.facts span{font-size:.92rem;color:var(--muted)}
-.tools{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1.5rem 0 0}
-.tools li{border:1.5px solid var(--line);padding:.3rem .9rem;border-radius:999px;font-size:.95rem}
+/* Gold borders and badges on listings */
+.listing{border:2px solid var(--gold-light);position:relative}
+.photo{background-image:linear-gradient(135deg,rgba(255,255,255,.35),transparent 60%)}
+.photo::before{content:"New";position:absolute;top:.8rem;left:.8rem;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--wine);font-size:.8rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;box-shadow:0 2px 0 rgba(42,18,21,.2)}
+.listing:nth-child(3n) .photo::before{content:"Popular"}
+.listing:nth-child(3n+2) .photo::before{content:"Viewing this week"}
+.price{border-bottom:2px dotted var(--gold-light);padding-bottom:.3rem}
 
-/* Services */
-.service{display:grid;grid-template-columns:90px 1fr 1.1fr;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);align-items:start}
-.service:last-child{border-bottom:1px solid var(--line)}
-.service .ico{width:60px;height:60px;border-radius:18px;background:var(--accent);display:grid;place-items:center}
-.service:nth-child(2) .ico{background:var(--teal)}
-.service:nth-child(3) .ico{background:var(--ink)}
-.service .ico svg{width:30px;height:30px;stroke:var(--accent-ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.service:nth-child(2) .ico svg{stroke:#fff}
-.service:nth-child(3) .ico svg{stroke:var(--bg)}
-.service h3{font-size:1.7rem}
-.service p{color:var(--muted);margin:0}
+/* Hover effects (motion only on user action) */
+.btn{box-shadow:0 3px 0 var(--red-dark);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(126,21,32,.35)}
+.btn.light{box-shadow:0 3px 0 var(--gold)}
+.btn.light:hover{box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.listing,.city,.why article{transition:transform .25s,box-shadow .25s,border-color .25s}
+.listing:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 14px 28px rgba(42,18,21,.15)}
+.city:hover,.why article:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(42,18,21,.2)}
+.logo{transition:color .2s}.logo:hover{color:var(--red-dark)}
+nav a:hover,nav a[aria-current]{border-color:var(--gold)}
+.search{border:2px solid var(--gold-light)}
+form.contact{border:2px solid var(--gold-light)}
+form.contact input:focus,form.contact select:focus,form.contact textarea:focus,.search select:focus{border-color:var(--gold);outline:2px solid var(--gold-light)}
+@media(prefers-reduced-motion:reduce){.btn:hover,.listing:hover,.city:hover,.why article:hover{transform:none}}
 
-/* Contact */
-.contact{background:var(--ink);color:var(--bg)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem}
-.contact h2{font-size:clamp(2.2rem,6vw,4rem)}
-.contact p{opacity:.85}
-.contact .mail{display:inline-block;margin-top:.5rem;font-family:var(--display);font-size:1.4rem;font-weight:700;color:var(--accent);word-break:break-word}
-form{display:grid;gap:1.1rem}
-label{font-weight:600;font-size:.95rem;display:block;margin-bottom:.35rem}
-input,textarea{width:100%;font:inherit;color:#231634;background:#fff;border:2px solid transparent;border-radius:14px;padding:.85rem 1rem}
-textarea{min-height:140px;resize:vertical}
-input:focus,textarea:focus{outline:3px solid var(--accent);outline-offset:2px}
-form button{font:inherit;font-weight:700;cursor:pointer;background:var(--accent);color:#231634;border:0;border-radius:999px;padding:1rem 1.8rem;justify-self:start}
-form button:hover{background:#fff}
-
-/* Footer */
-footer{padding:2rem 0;font-size:.95rem;color:var(--muted)}
-.foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
-.foot ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
-
-/* Responsive */
-@media (max-width:860px){
-  .burger{display:flex}
-  .links{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.25rem;display:none}
-  #menu:checked ~ .links{display:flex}
-  .links a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line)}
-  .links .cta{text-align:center;margin-top:.9rem;border-radius:999px}
-  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
-  .collage{justify-self:start;max-width:320px}
-  .service{grid-template-columns:70px 1fr}
-  .service p{grid-column:2}
-}
-@media (max-width:480px){
-  .facts{grid-template-columns:1fr 1fr}
-  .btn{flex:1 1 100%;text-align:center}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* ===== Single-file page switching (CSS only, no JavaScript) ===== */
+.page{display:none;scroll-margin-top:0}
+.page:target{display:block}
+#home{display:block}
+body:has(.page:target) #home:not(:target){display:none}
+body:has(#listings:target) nav a[href="#listings"],body:has(#about:target) nav a[href="#about"],body:has(#contact:target) nav a[href="#contact"],body:not(:has(.page:target)) nav a[href="#home"],body:has(#home:target) nav a[href="#home"]{border-color:var(--gold)}
 </style>
 </head>
 <body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="#home">Roxy <span>Real Estate</span></a>
+<nav aria-label="Main"><ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#listings">Listings</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul></nav></div></header>
+<main>
 
-<header class="site-header">
-  <nav class="wrap nav" aria-label="Main">
-    <a class="logo" href="#top">Your Name<span></span></a>
-    <input type="checkbox" id="menu" aria-label="Toggle menu">
-    <label class="burger" for="menu" aria-hidden="true"><i></i><i></i><i></i></label>
-    <ul class="links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact" class="cta">Hire me</a></li>
-    </ul>
-  </nav>
-</header>
+<!-- ============ HOME ============ -->
+<div class="page" id="home">
+<section class="hero"><div class="wrap">
+<div>
+<h1>Rent a home in Port Harcourt or Lagos without overpaying.</h1>
+<p>Roxy Real Estate lists self-contains, flats, apartments and duplexes at fair prices, and our agents walk you through every viewing.</p>
+<form class="search" action="#listings" method="get">
+<label>City<select name="city"><option>Port Harcourt</option><option>Lagos</option></select></label>
+<label>Property type<select name="type"><option>Any type</option><option>Single room</option><option>Self-contain</option><option>Flat or apartment</option><option>House or duplex</option></select></label>
+<button class="btn" type="submit">Find Your Home</button>
+</form>
+</div>
+<div class="hero-art" role="img" aria-label="Illustration of a house"></div>
+</div></section>
+<section class="block cities"><div class="wrap">
+<h2>Two cities, one trusted agency</h2>
+<div class="split">
+<div class="city"><h3>Port Harcourt</h3><p>Rooms, self-contains and family flats in GRA, Rumuokoro, Woji and nearby areas.</p><a href="#listings">See Port Harcourt rentals</a></div>
+<div class="city"><h3>Lagos</h3><p>Apartments and duplexes across Yaba, Ikeja, Lekki and the mainland.</p><a href="#listings">See Lagos rentals</a></div>
+</div></div></section>
+<section class="block"><div class="wrap">
+<h2>Recently added</h2>
+<p>A few of the homes available to view this week.</p>
+<div class="grid">
+<article class="listing"><div class="photo "><span class="tag">Self-contain</span></div>
+<div class="body"><div class="price">&#8358;900,000 <small>per year</small></div><h3>Self-contain in Yaba, Lagos</h3><p class="meta">Tiled, own kitchen and bathroom, prepaid meter</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo b"><span class="tag">Flat</span></div>
+<div class="body"><div class="price">&#8358;1,800,000 <small>per year</small></div><h3>2-bedroom flat in Woji, Port Harcourt</h3><p class="meta">Fenced compound, parking space, steady water</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo c"><span class="tag">Duplex</span></div>
+<div class="body"><div class="price">&#8358;8,000,000 <small>per year</small></div><h3>4-bedroom duplex in GRA, Port Harcourt</h3><p class="meta">Boys' quarters, gated estate, generator house</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+</div>
+<p class="note">Sample listings and prices shown. Contact us for what is available today.</p>
+<p style="margin-top:1.5rem"><a class="btn" href="#listings">View all listings</a></p>
+</div></section>
+<section class="cta-band"><div class="wrap">
+<h2>Not sure what you can afford?</h2>
+<p>Tell us your budget and preferred area. An agent will send you matching homes.</p>
+<a class="btn light" href="#contact">Talk to an agent</a>
+</div></section>
+</div>
 
-<main id="top">
-  <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>I turn rough ideas into finished work.</h1>
-        <p class="lead">Freelance graphic designer and video editor helping small brands look sharp and sound clear, from logo to launch video.</p>
-        <div class="btns">
-          <a class="btn primary" href="#contact">Start a project</a>
-          <a class="btn ghost" href="#services">See what I do</a>
-        </div>
-      </div>
-      <div class="collage" aria-hidden="true">
-        <div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div>
-      </div>
-    </div>
-  </div>
+<!-- ============ LISTINGS ============ -->
+<div class="page" id="listings">
+<section class="page-head"><div class="wrap">
+<h1>Rental listings</h1>
+<p>Single rooms, self-contains, flats, apartments and duplexes in Port Harcourt and Lagos. Prices are yearly rent.</p>
+<form class="search filters" action="#listings" method="get">
+<label>City<select name="city"><option>All cities</option><option>Port Harcourt</option><option>Lagos</option></select></label>
+<label>Property type<select name="type"><option>All types</option><option>Single room</option><option>Self-contain</option><option>Flat or apartment</option><option>House or duplex</option></select></label>
+<label>Budget<select name="budget"><option>Any budget</option><option>Under &#8358;1,000,000</option><option>&#8358;1M to &#8358;3M</option><option>Above &#8358;3M</option></select></label>
+<button class="btn" type="submit">Find Your Home</button>
+</form>
+</div></section>
+<section class="block"><div class="wrap"><div class="grid">
+<article class="listing"><div class="photo "><span class="tag">Single room</span></div>
+<div class="body"><div class="price">&#8358;350,000 <small>per year</small></div><h3>Single room in Rumuokoro, Port Harcourt</h3><p class="meta">Shared compound, water on site, close to the main road</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo b"><span class="tag">Self-contain</span></div>
+<div class="body"><div class="price">&#8358;900,000 <small>per year</small></div><h3>Self-contain in Yaba, Lagos</h3><p class="meta">Tiled, own kitchen and bathroom, prepaid meter</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo c"><span class="tag">Flat</span></div>
+<div class="body"><div class="price">&#8358;1,800,000 <small>per year</small></div><h3>2-bedroom flat in Woji, Port Harcourt</h3><p class="meta">Fenced compound, parking space, steady water</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo c"><span class="tag">Apartment</span></div>
+<div class="body"><div class="price">&#8358;2,600,000 <small>per year</small></div><h3>2-bedroom apartment in Ikeja, Lagos</h3><p class="meta">Wardrobes, running water, secure gate</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo "><span class="tag">Apartment</span></div>
+<div class="body"><div class="price">&#8358;6,500,000 <small>per year</small></div><h3>3-bedroom apartment in Lekki Phase 1, Lagos</h3><p class="meta">Furnished kitchen, parking, estate security</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+<article class="listing"><div class="photo b"><span class="tag">Duplex</span></div>
+<div class="body"><div class="price">&#8358;8,000,000 <small>per year</small></div><h3>4-bedroom duplex in GRA, Port Harcourt</h3><p class="meta">Boys' quarters, gated estate, generator house</p><a class="btn" href="#contact">Book a viewing</a></div></article>
+</div>
+<p class="note">Sample listings and prices shown. Contact us to confirm what is available today.</p>
+</div></section>
+<section class="cta-band"><div class="wrap">
+<h2>Don't see what you need?</h2>
+<p>Tell us the area, budget and type of home. We will search for you.</p>
+<a class="btn light" href="#contact">Contact an agent</a>
+</div></section>
+</div>
 
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div>
-        <h2>Design with a reason behind every choice.</h2>
-        <ul class="facts">
-          <li><b>5+</b><span>years of experience</span></li>
-          <li><b>80+</b><span>projects delivered</span></li>
-          <li><b>40</b><span>happy clients</span></li>
-        </ul>
-      </div>
-      <div>
-        <p>Hi, I'm Your Name. I work with founders, creators and local businesses who need visuals that explain what they do in a few seconds.</p>
-        <p>I start by learning how your customers think, then build the identity, graphics and video around that. You get clear timelines, fast replies and files that are ready to use.</p>
-        <ul class="tools" aria-label="Tools I use">
-          <li>Figma</li><li>Photoshop</li><li>Illustrator</li><li>Premiere Pro</li><li>After Effects</li><li>CapCut</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<!-- ============ ABOUT ============ -->
+<div class="page" id="about">
+<section class="page-head"><div class="wrap">
+<h1>Why choose Roxy Real Estate</h1>
+<p>We help people in Port Harcourt and Lagos find rentals they can afford, with agents who treat every client with respect.</p>
+</div></section>
+<section class="block"><div class="wrap">
+<div class="why">
+<article>
+<h2>Affordable rent options</h2>
+<p>Whether you need a single room or a family duplex, we list homes across a range of budgets so you are never pushed toward something you cannot pay for.</p>
+<ul class="list"><li>Prices stated clearly before any viewing</li><li>Options from single rooms to duplexes</li><li>Honest advice on what your budget can get</li></ul>
+</article>
+<article>
+<h2>Friendly, trusted agents</h2>
+<p>Our agents answer your calls, show you homes in person and explain the tenancy terms before you pay anything.</p>
+<ul class="list"><li>Agents available in Port Harcourt and Lagos</li><li>Clear explanation of rent, agreement and fees</li><li>Support from first viewing to move-in</li></ul>
+</article>
+</div>
+</div></section>
+<section class="cta-band"><div class="wrap">
+<h2>Ready to see a few homes?</h2>
+<p>Browse what is available or speak to an agent today.</p>
+<a class="btn light" href="#listings">Find Your Home</a>
+</div></section>
+</div>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Services</h2>
-        <p>Pick one service or combine them into a full brand package.</p>
-      </div>
+<!-- ============ CONTACT ============ -->
+<div class="page" id="contact">
+<section class="page-head"><div class="wrap">
+<h1>Talk to an agent</h1>
+<p>Send your budget, preferred area and property type. We reply with matching homes and viewing times.</p>
+</div></section>
+<section class="block"><div class="wrap contact-grid">
+<dl class="details">
+<dt>Phone</dt><dd><a href="tel:+2340000000000">+234 000 000 0000</a></dd>
+<dt>Email</dt><dd><a href="mailto:hello@roxyrealestate.com">hello@roxyrealestate.com</a></dd>
+<dt>Office address</dt><dd>[Your office address]<br>Port Harcourt, Rivers State</dd>
+<dt>Areas we cover</dt><dd>Port Harcourt and Lagos</dd>
+</dl>
+<form class="contact" action="mailto:hello@roxyrealestate.com" method="post" enctype="text/plain">
+<label>Full name<input type="text" name="name" required autocomplete="name"></label>
+<label>Phone number<input type="tel" name="phone" required autocomplete="tel"></label>
+<label>City<select name="city"><option>Port Harcourt</option><option>Lagos</option></select></label>
+<label>Property type<select name="type"><option>Single room</option><option>Self-contain</option><option>Flat or apartment</option><option>House or duplex</option></select></label>
+<label>Message<textarea name="message" placeholder="Tell us your budget and preferred area"></textarea></label>
+<button class="btn" type="submit">Send message</button>
+</form>
+</div></section>
+</div>
 
-      <article class="service">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="M2 2l7.6 7.6"/></svg></div>
-        <h3>Brand identity</h3>
-        <p>Logo, color palette, typography and a short style guide so your brand looks the same everywhere.</p>
-      </article>
-
-      <article class="service">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div>
-        <h3>Video editing</h3>
-        <p>Social reels, promos and YouTube edits with clean cuts, captions, sound and motion graphics.</p>
-      </article>
-
-      <article class="service">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-        <h3>Graphic design</h3>
-        <p>Social media posts, flyers, packaging, pitch decks and product mockups made to match your brand.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <h2>Let's work together.</h2>
-        <p>Tell me what you're building, your deadline and your budget range. I reply within one business day.</p>
-        <a class="mail" href="mailto:hello@example.com">hello@example.com</a>
-      </div>
-      <form action="mailto:hello@example.com" method="post" enctype="text/plain">
-        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
-        <div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div><label for="msg">Project details</label><textarea id="msg" name="message" required></textarea></div>
-        <button type="submit">Send message</button>
-      </form>
-    </div>
-  </section>
 </main>
-
-<footer>
-  <div class="wrap foot">
-    <span>© 2026 Your Name. All rights reserved.</span>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</footer>
-
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h3>Roxy Real Estate</h3><p>Affordable rentals and lettings in Port Harcourt and Lagos, handled by agents you can trust.</p></div>
+<div><h3>Pages</h3><ul><li><a href="#home">Home</a></li><li><a href="#listings">Listings</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+<div><h3>Contact</h3><ul><li><a href="tel:+2340000000000">+234 000 000 0000</a></li><li><a href="mailto:hello@roxyrealestate.com">hello@roxyrealestate.com</a></li><li>Office: [Your office address], Port Harcourt</li></ul></div>
+</div>
+<p class="copy">&copy; 2026 Roxy Real Estate. All rights reserved.</p>
+</div></footer>
 </body>
 </html>
+```
